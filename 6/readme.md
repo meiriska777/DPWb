@@ -1,6 +1,6 @@
-Sabtu, 29 Mei 2021
-Pertemuan Ke 6
+Sabtu, 29 Mei 2021<br>
+Pertemuan Ke 6<br>
 
-NIM: 2022500079
-Nama: Meiriska Elyanti
-Kelompok: SI2K
+NIM: 2022500079<br>
+Nama: Meiriska Elyanti<br>
+Kelompok: SI2K<br>
