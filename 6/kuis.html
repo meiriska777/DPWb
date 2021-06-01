@@ -1,0 +1,147 @@
+<form>
+	<fieldset>
+		<legend>Data Pribadi</legend>
+		<table>
+			<tr>
+				<td>Nama</td>
+				<td>:</td>
+				<td><input type="text" name="txtnama" id="txtnama" placeholder="Masukkan nama Anda" onkeypress="return harusHuruf(event)"><span id="lblErrornama" style="color: red;">*Hanya huruf</span></td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td>:</td>
+				<td><input type="text" name="txtemail" id="txtemail" placeholder="Masukkan email Anda" onkeyup="ValidateEmail();"><span id="lblError" style="color: red;">*Format email yang benar</span></td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td>:</td>
+				<td><input type="password" name="txtpassword" id="txtpassword" onkeyup="ValidatePassword();"><span id="lblErrorpass" style="color: red;">*Maksimal 8 karakter</span></td>
+			</tr>
+
+			<tr>
+				<td>Konfirmasi Password</td>
+				<td>:</td>
+				<td><input type="password" name="txtkonfirmasipassword" onkeyup="ValidatePassword();"><span id="lblErrorpass"></span></td>
+			</tr>
+
+			<tr>
+				<td>Handphone</td>
+				<td>:</td>
+				<td><input type="text" name="txthandphone" onkeypress="return hanyaAngka(event)"><span style="color: red;">*Hanya angka</span></td>
+			</tr>
+
+			<tr>
+				<td>Jenis Kelamin</td>
+				<td>:</td>
+				<td><input type="radio" name="gender" value="Laki-laki">Laki-laki
+ 					 <input type="radio" name="gender" value="Perempuan">Perempuan</td>
+			</tr>
+
+			<tr>
+				<td>Hobi</td>
+				<td>:</td>
+				<td><input type="checkbox" name="Hobi" value="Membaca Buku">Membaca Buku
+				<input type="checkbox" name="Hobi" value="Menulis">Menulis
+				<input type="checkbox" name="Hobi" value="Memancing">Memancing</td>
+			</tr>
+
+			<tr>
+				<td>Asal Kota</td>
+				<td>:</td>
+				<td><select name="txtKota">
+					<option>--Pilih--</option>
+					<option value="Pangkalpinang">Pangkalpinang</option>
+					<option value="Sungailiat">Sungailiat</option>
+					<option value="Belinyu">Belinyu</option>
+					<option value="Koba">Koba</option>
+					<option value="Mentok">Mentok</option>
+					<option value="Lainnya">Lainnya</option>
+				</select>
+			</td>
+			</tr>
+
+			<tr>
+				<td>Komentar Anda</td>
+				<td>:</td>
+				<td><textarea name="txtkomentar" rows="6" cols="25" placeholder="Silakan katakan isi hati Anda"></textarea></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="validation()"> Kirim </button></td>
+			</tr>
+		</table>
+	</fieldset>
+</form>
+
+
+<script type="text/javascript">
+	
+	function harusHuruf(evt){
+		var lblError = document.getElementById("lblErrornama");
+        lblError.innerHTML = "";
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if ((charCode < 65 || charCode > 90)&&(charCode < 97 || charCode > 122)&&charCode>32) {
+        	lblError.innerHTML = "*Hanya huruf";
+            return false;
+        }
+        return true;
+	}
+
+	function ValidateEmail() {
+        var email = document.getElementById("txtemail").value;
+        var lblError = document.getElementById("lblError");
+        lblError.innerHTML = "";
+        var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        if (!expr.test(email)) {
+        	lblError.innerHTML = "*Format email yang benar";
+        }
+        //return true;
+    }
+
+    function ValidatePassword() {
+        var password = document.getElementById("txtpassword").value;
+        var n = password.length;
+        var lblError = document.getElementById("lblErrorpass");
+        lblError.innerHTML = "";
+        if (n > 8) {
+        	lblError.innerHTML = "*Maksimal 8 karakter";
+        }
+        //return true;
+        //12345678
+    }
+
+    function matchPassword() {  
+  var password = document.getElementById("txtpassword").value;  
+  var konfirmasipassword = document.getElementById("txtkonfirmasipassword").value;  
+  if(password != konfirmasipassword)
+  var lblError = document.getElementById("lblErrorpass");
+        lblError.innerHTML = "";
+        if (n > 8) {
+        	lblError.innerHTML = "*Maksimal 8 karakter";
+        	}
+        //return true;
+        //12345678
+    }  
+
+function hanyaAngka(evt) {
+	var charCode = (evt.which) ? evt.which : event.keyCode
+	if (charCode > 31 && (charCode < 48 || charCode > 57))
+	return true;
+}
+	
+	/*function validation(){
+	  var validasiHuruf = /^[a-zA-Z ]+$/;
+	  var nama = document.getElementById("txtnama");
+	  if (nama.value.match(validasiHuruf)) {
+	     alert("Nama Anda adalah " + nama.value);
+	     return true;
+	  } else {
+	     alert("Masukkan nama Anda!\nFormat wajib huruf!");
+	     return false;
+	     //nama.value="";
+	     //nama.focus();
+	     //<input type="text" name="txtnama" id="txtnama" placeholder="Masukkan nama Anda" onkeydown="validation()"><span style="color: red;">*Hanya huruf</span>
+	  }
+	}*/
+</script>
